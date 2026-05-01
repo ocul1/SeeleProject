@@ -9,6 +9,18 @@ def name_gathering():
 name_gathering()
 
 def writer_deck_main():
+    title = input("Entry Title: ")
+    print("Write your entry, and type 'END' on a new line to finish")
+    print(title)
+    lines = []
+    while True:
+        line = input()
+        if line.strip().upper() == "END":
+            break
+        lines.append(line)
+    
+writer_deck_main()
+    
     
 
 
