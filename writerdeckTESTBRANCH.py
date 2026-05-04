@@ -14,11 +14,6 @@ def greeting():
     print()
     
 greeting()
-
-def name_gathering():
-    name = input("Name of person submitting entry: ")
-    print()
-    return name
     
 name_gathering()
 
