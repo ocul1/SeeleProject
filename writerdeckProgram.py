@@ -1,3 +1,12 @@
+import os
+import datetime
+
+writerDeck_DIR = "writerDeck"
+
+def ensure_journal_dir():
+    if not os.path.exists(writerDeck_DIR):
+        os.makedirs(writerDeck_DIR)
+
 def greeting():
     print("Hello!, Welcome to the WriterDeck Program by ocul1")
     print()
@@ -21,9 +30,6 @@ def writer_deck_main():
     
 writer_deck_main()
     
-    
-
-
 
 def run_again():
     answer = input("Would you like to run this program again, 'Y' or 'N': ").lower()    
@@ -33,5 +39,7 @@ def run_again():
         return True
     else:
         return False 
+    
+run_again()
 
 
