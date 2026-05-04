@@ -14,8 +14,6 @@ def greeting():
     print()
     
 greeting()
-    
-name_gathering()
 
 def writer_deck_main():
     name = input("Name of person submitting entry: ")
