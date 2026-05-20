@@ -42,7 +42,7 @@ def saving_text(lines, name, today, title):
         file.write("Author: " + name + "\n")
         file.write("Title: " + title + "\n")
         file.write("Date: " + str(today)+ "\n")
-        file.write("Time: " + timestamp + "\n")
+        file.write("Time: " + timestamp + "\n\n")
         file.write("\n".join(lines))
         file.write("\n"+"-" * 40 + "\n")
         
