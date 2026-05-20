@@ -37,18 +37,15 @@ def writer_deck_main():
 #MISSING SAVE TO FILE HERE
 def saving_text(lines, name, today, title):
     file_path = os.path.join(writerDeck_DIR, "writerdeck.txt")
-    with open("writerdeck.txt","a",encoding="utf-8") as file:
+    with open(file_path,"a",encoding="utf-8") as file:
         timestamp = datetime.datetime.now().strftime("%I:%M %p")
         file.write("Author: " + name + "\n")
-        file.write(title + "\n")
-        file.write(str(today)+ "\n")
-        file.write(timestamp + "\n")
+        file.write("Title: " + title + "\n")
+        file.write("Date: " + str(today)+ "\n")
+        file.write("Time: " + timestamp + "\n")
         file.write("\n".join(lines))
         file.write("\n"+"-" * 40 + "\n")
         
-    
-
-
 
 def run_again():
     answer = input("Would you like to run this program again, 'Y' or 'N': ").lower()    
