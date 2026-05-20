@@ -32,9 +32,11 @@ def writer_deck_main():
         if line.strip().upper() == "END":
             break
         lines.append(line)
+    saving_text(lines,name,today,title)
 
 #MISSING SAVE TO FILE HERE
 def saving_text(lines, name, today, title):
+    file_path = os.path.join(writerDeck_DIR, "writerdeck.txt")
     with open("writerdeck.txt","a",encoding="utf-8") as file:
         timestamp = datetime.datetime.now().strftime("%I:%M %p")
         file.write("Author: " + name + "\n")
@@ -43,9 +45,8 @@ def saving_text(lines, name, today, title):
         file.write(timestamp + "\n")
         file.write("\n".join(lines))
         file.write("\n"+"-" * 40 + "\n")
-        file.write("----------------------------")
         
-     
+    
 
 
 
