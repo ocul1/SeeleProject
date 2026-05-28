@@ -7,37 +7,45 @@ def ensure_writerDeck_dir():
     if not os.path.exists(writerDeck_DIR):
         os.makedirs(writerDeck_DIR)
         
-ensure_writerDeck_dir()
 
 def greeting():
     print("Hello!, Welcome to the WriterDeck Program by ocul1")
     print()
     
-greeting()
-
-def name_gathering():
-    name = input("Name of person submitting entry: ")
-    print()
-    return name
-    
-name_gathering()
 
 def writer_deck_main():
+    today = datetime.date.today()
+    print(today)
     name = input("Name of person submitting entry: ")
     print()
     print("Author of Entry: ", name)
+    print(today)
     title = input("Entry Title: ")
     print("Write your entry, and type 'END' on a new line to finish")
+    print()
     print(title)
+    print()
+    print("----------------")
     lines = []
     while True:
         line = input()
         if line.strip().upper() == "END":
             break
         lines.append(line)
-    
-writer_deck_main()
-    
+    saving_text(lines,name,today,title)
+
+#MISSING SAVE TO FILE HERE
+def saving_text(lines, name, today, title):
+    file_path = os.path.join(writerDeck_DIR, "writerdeck.txt")
+    with open(file_path,"a",encoding="utf-8") as file:
+        timestamp = datetime.datetime.now().strftime("%I:%M %p")
+        file.write("Author: " + name + "\n")
+        file.write("Title: " + title + "\n")
+        file.write("Date: " + str(today)+ "\n")
+        file.write("Time: " + timestamp + "\n\n")
+        file.write("\n".join(lines))
+        file.write("\n"+"-" * 40 + "\n\n")
+        
 
 def run_again():
     answer = input("Would you like to run this program again, 'Y' or 'N': ").lower()    
@@ -48,6 +56,13 @@ def run_again():
     else:
         return False 
     
-run_again()
 
+main_core = True
+while main_core ==True:
+    ensure_writerDeck_dir()
+    greeting()
+    writer_deck_main()
+    main_core = run_again()
 
+    
+    
